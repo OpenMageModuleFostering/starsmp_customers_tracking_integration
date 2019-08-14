@@ -4,7 +4,13 @@ require_once(Mage::getBaseDir('lib') . '/KremsaDigital/StarSocial/starsmp.php');
 class KremsaDigital_StarSocial_Model_Track {
     private $smpInstance = null;
     private $siteUrl = null;
+    private $isModuleActive = null;
     const VIPFAN_KEY = 'starsocial_vipfan_id';
+
+    public function __construct() {
+        $this->isModuleActive = Mage::helper('starsocial')->isModuleActive();
+        $this->siteUrl = $this->getProtocol() . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+    }
 
     private function isAuthorized() {
         return !($this->smpInstance == null);
@@ -16,7 +22,7 @@ class KremsaDigital_StarSocial_Model_Track {
     }
 
     private function authorize() {
-        if (Mage::getStoreConfig('starsocial/conf/active') == '0') {
+        if (!$this->isModuleActive) {
             return;
         }
         $smpSettings = new StarSMPSettings();
@@ -34,13 +40,17 @@ class KremsaDigital_StarSocial_Model_Track {
             throw $e;
         }
         $this->smpInstance = $smp;
-        $this->siteUrl = $this->getProtocol() . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+        $smpToken = Mage::getSingleton('core/session')->getSmpToken();
+        if (!empty($smpToken)) {
+            $this->smpInstance->setAccessToken($smpToken);
+        }
     }
 
     public function track($action, $value) {
-        if (Mage::getStoreConfig('starsocial/conf/active') == '0') {
+        if (!$this->isModuleActive) {
             return;
         }
+
         if (!$this->isAuthorized()) {
             $this->authorize();
         }
@@ -50,30 +60,35 @@ class KremsaDigital_StarSocial_Model_Track {
             if ($vipfanId) {
                 $this->smpInstance->setVipfanID($vipfanId);
             }
+            // var_dump($this->smpInstance);die();
             $this->smpInstance->track($action, $this->siteUrl, $value); // tracked under vipfan opted in above
         } catch (Exception $e) {
-            throw $e;
+            Mage::log($e->getMessage(), null, 'starsocial.log');
         }
     }
 
     public function optin($data) {
-        if (Mage::getStoreConfig('starsocial/conf/active') == '0') {
+        if (!$this->isModuleActive) {
             return;
         }
         if (!$this->isAuthorized()) {
             $this->authorize();
         }
         try {
+        	$data['update_referrer'] = true;
             $vipfan = $this->smpInstance->optin($data, $this->siteUrl);
-            Mage::register($this::VIPFAN_KEY, $vipfan['id']);
+            if (Mage::registry($this::VIPFAN_KEY) != $vipfan['id']) {
+            	Mage::unregister($this::VIPFAN_KEY);
+            	Mage::register($this::VIPFAN_KEY, $vipfan['id']);
+            }
             Mage::getSingleton('core/session')->setVipfanId($vipfan['id']);
         } catch (Exception $e) {
-            throw $e;
+            Mage::log($e->getMessage(), null, 'starsocial.log');
         }
     }
 
     public function logout() {
-        if (Mage::getStoreConfig('starsocial/conf/active') == '0') {
+        if (!$this->isModuleActive) {
             return;
         }
         if (!$this->isAuthorized()) {
@@ -82,7 +97,7 @@ class KremsaDigital_StarSocial_Model_Track {
         try {
             $this->smpInstance->logout();
         } catch (Exception $e) {
-            throw $e;
+            Mage::log($e->getMessage(), null, 'starsocial.log');
         }
         Mage::getSingleton('core/session')->unsVipfanId();
         Mage::register($this::VIPFAN_KEY, null);

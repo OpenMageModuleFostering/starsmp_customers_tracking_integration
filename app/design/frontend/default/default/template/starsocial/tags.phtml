@@ -1,3 +1,40 @@
 <?php
+if (Mage::helper('starsocial')->isModuleActive()):
+	echo Mage::getStoreConfig('starsocial/conf/tag_starsmp');	
+?>
+<div id="smp-root"></div>
 
-echo Mage::getStoreConfig('starsocial/conf/tag_starsmp');
+<script>
+
+var STARSMP_API_PATH = <?php if (Mage::getStoreConfig('starsocial/conf/is_beta') == '1'):?>'//api.starsmp.com-beta.com'<?php else:?>'//api.starsmp.com'<?php endif; ?>;
+	window.smpAsyncInit = function() {
+	    StarSMP.init({
+	        loyaltyId:   <?php echo json_encode(Mage::getStoreConfig('starsocial/conf/loyalty_id'))?>,
+	        apiServer:   STARSMP_API_PATH + '/api/',
+	        clientId:    <?php echo json_encode(Mage::getStoreConfig('starsocial/conf/client_id'))?>,
+	        channelUrl:  '//' + document.location.host + <?php echo json_encode(Mage::helper('starsocial')->getLibUrl())?> + '/channel.html',
+	        smpLoginService: '//' + document.location.host + <?php echo json_encode(Mage::helper('starsocial')->getLibUrl())?> + '/smp_login.php', // TODO update path to smp_login.php from PHP sdk
+            accessTokenTTL: 0
+	    }, function(data) {
+	        
+	        	// method call
+			StarSMP.api("auth.token", {"grant_type":"none","client_id":<?php echo json_encode(Mage::getStoreConfig('starsocial/conf/client_id'))?>,"return":"true"}, function(data) {
+				if(typeof StarSMP.accessToken!='undefined') {
+					jQuery.post(
+						'//' + document.location.host + <?php echo json_encode(Mage::helper('starsocial')->getLibUrl())?> + '/smp_login.php',
+						{ tkn: StarSMP.accessToken },
+						function(resp) {}
+					);
+				}
+			});
+	    });
+	};
+	
+
+	var e = document.createElement("script"); e.async = true;
+	e.src = document.location.protocol + STARSMP_API_PATH + "/connect/all.js";
+	document.getElementById("smp-root").appendChild(e);
+
+</script>
+<?php
+endif;

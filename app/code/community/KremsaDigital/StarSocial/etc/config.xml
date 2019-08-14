@@ -55,6 +55,14 @@
                     </trackCheckoutComplete>
                 </observers>
             </checkout_onepage_controller_success_action>
+            <sales_order_save_after>
+                <observers>
+                    <optinAfterSaveOrder>
+                        <class>KremsaDigital_StarSocial_Model_Observer</class>
+                        <method>optinAfterSaveOrder</method>
+                    </optinAfterSaveOrder>
+                </observers>
+            </sales_order_save_after>
         </events>
     </frontend>
 

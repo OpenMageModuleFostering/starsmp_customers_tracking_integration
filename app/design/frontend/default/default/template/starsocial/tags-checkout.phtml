@@ -1,12 +1,14 @@
 <?php
-$orderId = Mage::getSingleton('checkout/session')->getLastOrderId();
-$order = Mage::getSingleton('sales/order')->load($orderId);
-$subtotal = $order->getSubtotalInclTax();
-$total = $order->getGrandTotal();
-?>
-<script type="text/javascript">
-    var SUBTOTAL_INCL_TAX = <?php echo json_encode($subtotal);?>;
-    var GRANDTOTAL_INCL_TAX = <?php echo json_encode($total);?>;
-</script>
-<?
-echo Mage::getStoreConfig('starsocial/conf/tag_starsmp_checkout');
+if (Mage::helper('starsocial')->isModuleActive()) {
+	$orderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+	$order = Mage::getSingleton('sales/order')->load($orderId);
+	$subtotal = $order->getSubtotalInclTax();
+	$total = $order->getGrandTotal();
+	?>
+	<script type="text/javascript">
+	    var SUBTOTAL_INCL_TAX = <?php echo json_encode($subtotal);?>;
+	    var GRANDTOTAL_INCL_TAX = <?php echo json_encode($total);?>;
+	</script>
+	<?php
+	echo Mage::getStoreConfig('starsocial/conf/tag_starsmp_checkout');
+}
