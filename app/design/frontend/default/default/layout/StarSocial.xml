@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="before_body_end">
+            <block type="core/template" name="starsocial.tags" template="starsocial/tags.phtml"/>
+        </reference>
+    </default>
+
+    <checkout_onepage_success translate="label">
+        <reference name="before_body_end">
+            <block type="core/template" name="starsocial.tags.checkout" template="starsocial/tags-checkout.phtml"/>
+        </reference>
+    </checkout_onepage_success>
+
+</layout>

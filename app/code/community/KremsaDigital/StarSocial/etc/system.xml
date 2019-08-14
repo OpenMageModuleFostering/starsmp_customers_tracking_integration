@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <kremsadigital>
+            <label>Kremsa Digital</label>
+            <sort_order>999</sort_order>
+        </kremsadigital>
+    </tabs>
+    <sections>
+          <starsocial translate="label" module="starsocial">
+            <label>Star Social</label>
+            <tab>kremsadigital</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <conf translate="label">
+                    <label>General Configurations</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Extentions Active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>                                                              <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <is_beta translate="label">
+                            <label>Beta env.?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>                                                              <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </is_beta>
+                        <loyalty_id translate="label">
+                            <label>Loyalty Program</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loyalty_id>
+						<client_id translate="label">
+                            <label>Client ID</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </client_id>
+						<client_secret translate="label">
+                            <label>Client Secret</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </client_secret>
+						<tag_starsmp translate="label">
+                            <label>Tag StarSMP</label>
+                            <frontend_type>textarea</frontend_type>
+							<sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tag_starsmp>
+						<tag_starsmp_checkout translate="label">
+                            <label>Tag StarSMP - checkout</label>
+                            <frontend_type>textarea</frontend_type>
+							<sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tag_starsmp_checkout>
+                    </fields>
+                </conf>
+	        </groups>
+        </starsocial>
+    </sections>
+</config>

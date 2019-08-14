@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+    <name>StarSMP_Customers_Tracking_Integration</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Integrates Magento with StarSMP - digital campaigns tracking and automation tool.</summary>
+    <description>StarSMP shows which marketing effort earns the most - ROI. StarSMP enables you to monitor all your digital campaigns and see what actions they bring. Further, StarSMP enables you to automate marketing campaigns.&#xD;
+&#xD;
+StarSMP main features:&#xD;
+- track actions (anything that visitor do on your website)&#xD;
+- automate rewards (automated emails, webhooks, repsonses)&#xD;
+- analyze results (grouped and detail analytics of marketing campaigns) &#xD;
+&#xD;
+StarSMP Universal Tag - supports Google Analytics, Google Remarketing. Facebook Retargeting and any other custom tracking. &#xD;
+&#xD;
+StarSMP Universal Tag Features: &#xD;
+- managing tracking tags in one place&#xD;
+- add custom tracking codes&#xD;
+- automatically deploys to your Magento e-shop&#xD;
+- control access to your tracking codes</description>
+    <notes>First stable version</notes>
+    <authors><author><name>KremsaDigital</name><user>kremsa_design</user><email>kremsa.office.sk@gmail.com</email></author></authors>
+    <date>2014-10-07</date>
+    <time>19:33:16</time>
+    <contents><target name="magecommunity"><dir name="KremsaDigital"><dir name="StarSocial"><dir name="Helper"><file name="Data.php" hash="f2178de63bddfcaffe71bef7b8fcf829"/></dir><dir name="Model"><file name="Observer.php" hash="6cc3b6d784af3b900d61cf4cce27c83d"/><file name="Track.php" hash="77e647afddb19e3add21069c39965f46"/></dir><dir name="etc"><file name="adminhtml.xml" hash="735e6dfffa1e18830ec0f9a061eaa480"/><file name="config.xml" hash="5ba3521633493ef0b9ef9b9d4943fe47"/><file name="system.xml" hash="559342dbfacd62b62e8f05b15828bffd"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="StarSocial.xml" hash="44aa76355559f1ab659e76fa5767dbd2"/></dir><dir name="template"><dir name="starsocial"><file name="tags-checkout.phtml" hash="259497eae83a0aa571b83f3de7713ea4"/><file name="tags.phtml" hash="0b2867be89168097b89c1368038e376e"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="KremsaDesign_StarSocial.xml" hash="f07ad022b4e7aaa1c67f0bd9d2458f99"/></dir></target><target name="magelib"><dir name="KremsaDigital"><dir name="StarSocial"><file name="starsmp.php" hash="d6c0f4ca17813c9ce955fab7b10cb40a"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php><package><name>Mage_Core_Modules</name><channel>community</channel><min>1.6.0.0</min><max>1.9.0.1</max></package></required></dependencies>
+</package>
