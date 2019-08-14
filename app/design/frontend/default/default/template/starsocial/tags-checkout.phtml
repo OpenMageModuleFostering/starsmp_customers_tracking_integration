@@ -9,6 +9,6 @@ if (Mage::helper('starsocial')->isModuleActive()) {
 	    var SUBTOTAL_INCL_TAX = <?php echo json_encode($subtotal);?>;
 	    var GRANDTOTAL_INCL_TAX = <?php echo json_encode($total);?>;
 	</script>
-	<?
+	<?php
 	echo Mage::getStoreConfig('starsocial/conf/tag_starsmp_checkout');
 }
