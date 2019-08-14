@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>StarSMP_Customers_Tracking_Integration</name>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <stability>stable</stability>
     <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
     <channel>community</channel>
@@ -21,11 +21,11 @@ StarSMP Universal Tag Features: &#xD;
 - add custom tracking codes&#xD;
 - automatically deploys to your Magento e-shop&#xD;
 - control access to your tracking codes</description>
-    <notes>optin guest customer</notes>
+    <notes>smp login updated</notes>
     <authors><author><name>KremsaDigital</name><user>kremsa_design</user><email>kremsa.office.sk@gmail.com</email></author></authors>
-    <date>2014-10-16</date>
-    <time>19:15:17</time>
-    <contents><target name="magecommunity"><dir name="KremsaDigital"><dir name="StarSocial"><dir name="Helper"><file name="Data.php" hash="85963ac4a639c694b7db915ef5905c44"/></dir><dir name="Model"><file name="Observer.php" hash="6d4acd24a0b80e70dc7ea57143dacd13"/><file name="Track.php" hash="3de832a0f158cd173a036b93eb0dd028"/></dir><dir name="etc"><file name="adminhtml.xml" hash="735e6dfffa1e18830ec0f9a061eaa480"/><file name="config.xml" hash="61597357d6b60c410183b07ba296129b"/><file name="system.xml" hash="5c4f4fdb3735ea7c3396dcf681509e86"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="KremsaDesign_StarSocial.xml" hash="f07ad022b4e7aaa1c67f0bd9d2458f99"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="StarSocial.xml" hash="44aa76355559f1ab659e76fa5767dbd2"/></dir><dir name="template"><dir name="starsocial"><file name="tags-checkout.phtml" hash="f1986a33e545c1246ad07fa7fa5d2a4b"/><file name="tags.phtml" hash="833114f709760c4b7dd578675a9d564e"/></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="KremsaDigital"><dir name="StarSocial"><file name="channel.html" hash="d41d8cd98f00b204e9800998ecf8427e"/><file name="smp_login.php" hash="6edf68fb880bee500976a3a1a833a2fe"/></dir></dir></dir></target><target name="magelib"><dir name="KremsaDigital"><dir name="StarSocial"><file name="starsmp.php" hash="d6c0f4ca17813c9ce955fab7b10cb40a"/></dir></dir></target></contents>
+    <date>2014-10-18</date>
+    <time>13:31:22</time>
+    <contents><target name="magecommunity"><dir name="KremsaDigital"><dir name="StarSocial"><dir name="Helper"><file name="Data.php" hash="85963ac4a639c694b7db915ef5905c44"/></dir><dir name="Model"><file name="Observer.php" hash="6d4acd24a0b80e70dc7ea57143dacd13"/><file name="Track.php" hash="3de832a0f158cd173a036b93eb0dd028"/></dir><dir name="etc"><file name="adminhtml.xml" hash="735e6dfffa1e18830ec0f9a061eaa480"/><file name="config.xml" hash="61597357d6b60c410183b07ba296129b"/><file name="system.xml" hash="5c4f4fdb3735ea7c3396dcf681509e86"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="KremsaDesign_StarSocial.xml" hash="f07ad022b4e7aaa1c67f0bd9d2458f99"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="StarSocial.xml" hash="44aa76355559f1ab659e76fa5767dbd2"/></dir><dir name="template"><dir name="starsocial"><file name="tags-checkout.phtml" hash="f1986a33e545c1246ad07fa7fa5d2a4b"/><file name="tags.phtml" hash="833114f709760c4b7dd578675a9d564e"/></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="KremsaDigital"><dir name="StarSocial"><file name="channel.html" hash="d41d8cd98f00b204e9800998ecf8427e"/><file name="smp_login.php" hash="5c930b782c47cc798254c7b60f998aee"/></dir></dir></dir></target><target name="magelib"><dir name="KremsaDigital"><dir name="StarSocial"><file name="starsmp.php" hash="d6c0f4ca17813c9ce955fab7b10cb40a"/></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
 </package>
