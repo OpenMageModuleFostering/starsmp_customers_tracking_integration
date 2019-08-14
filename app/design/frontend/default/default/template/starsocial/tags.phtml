@@ -13,8 +13,7 @@ var STARSMP_API_PATH = <?php if (Mage::getStoreConfig('starsocial/conf/is_beta')
 	        apiServer:   STARSMP_API_PATH + '/api/',
 	        clientId:    <?php echo json_encode(Mage::getStoreConfig('starsocial/conf/client_id'))?>,
 	        channelUrl:  '//' + document.location.host + <?php echo json_encode(Mage::helper('starsocial')->getLibUrl())?> + '/channel.html',
-	        smpLoginService: '//' + document.location.host + <?php echo json_encode(Mage::helper('starsocial')->getLibUrl())?> + '/smp_login.php', // TODO update path to smp_login.php from PHP sdk
-            accessTokenTTL: 0
+	        smpLoginService: '//' + document.location.host + <?php echo json_encode(Mage::helper('starsocial')->getLibUrl())?> + '/smp_login.php' // TODO update path to smp_login.php from PHP sdk
 	    }, function(data) {
 	        
 	        	// method call
