@@ -75,8 +75,12 @@ class KremsaDigital_StarSocial_Model_Track {
             $this->authorize();
         }
         try {
+        	$data['update_referrer'] = true;
             $vipfan = $this->smpInstance->optin($data, $this->siteUrl);
-            Mage::register($this::VIPFAN_KEY, $vipfan['id']);
+            if (Mage::registry($this::VIPFAN_KEY) != $vipfan['id']) {
+            	Mage::unregister($this::VIPFAN_KEY);
+            	Mage::register($this::VIPFAN_KEY, $vipfan['id']);
+            }
             Mage::getSingleton('core/session')->setVipfanId($vipfan['id']);
         } catch (Exception $e) {
             Mage::log($e->getMessage(), null, 'starsocial.log');
