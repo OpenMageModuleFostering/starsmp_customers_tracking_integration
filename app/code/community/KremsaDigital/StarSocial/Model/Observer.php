@@ -23,6 +23,22 @@ class KremsaDigital_StarSocial_Model_Observer {
         $track->optin($data);
     }
 
+    public function optinAfterSaveOrder($observer) {
+        $order = $observer->getEvent()->getOrder();
+        $isGuest = (boolean)$order->getCustomerIsGuest();
+        if ($isGuest) {
+        	$order_data = $order->getBillingAddress()->getData();
+
+	        $track = Mage::getModel('starsocial/track');
+	        $data = array(
+	            'email'=>$order_data['email'],
+	            "first_name" => $order_data['firstname'],
+	            "last_name" => $order_data['lastname'],
+	        );
+	        $track->optin($data);
+        }
+    }
+
     public function optinAfterLogout($observer) {
         $track = Mage::getModel('starsocial/track');
         $track->logout();
