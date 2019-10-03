@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Integrates Magento with StarSMP - digital campaigns tracking and automation tool.
