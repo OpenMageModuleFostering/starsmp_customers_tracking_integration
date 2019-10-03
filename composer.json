@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/StarSMP_Customers_Tracking_Integration",
+    "name": "OpenMageModuleFostering\/StarSMP_Customers_Tracking_Integration",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "Integrates Magento with StarSMP - digital campaigns tracking and automation tool.",
     "authors": [
-    {
-        "name": "KremsaDigital",
-        "email": "kremsa.office.sk@gmail.com"
-    }
-],
+        {
+            "name": "KremsaDigital",
+            "email": "kremsa.office.sk@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
